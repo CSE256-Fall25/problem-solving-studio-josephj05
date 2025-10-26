@@ -1,6 +1,10 @@
 // ---- Define your dialogs  and panels here ----
 
+// Create the Effective Permissions panel
+let effectivePanel = define_new_effective_permissions("effperm_panel", true);
 
+// Append the panel to the right-side container
+$('#sidepanel').append(effectivePanel);
 
 // ---- Display file structure ----
 
