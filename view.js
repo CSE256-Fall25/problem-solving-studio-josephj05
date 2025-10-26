@@ -1,4 +1,4 @@
-// ---- Define your dialogs  and panels here ----
+// ---- Define your dialogs and panels here ----
 
 // Create the Effective Permissions panel
 let effectivePanel = define_new_effective_permissions("effperm_panel", true);
@@ -6,6 +6,22 @@ let effectivePanel = define_new_effective_permissions("effperm_panel", true);
 // Append the panel to the right-side container
 $('#sidepanel').append(effectivePanel);
 
+// Create the user selection field and connect it to the panel
+let userSelect = define_new_user_select_field(
+    "user_select_field",
+    "Select User",
+    function(selected_user) {
+
+        // Update the Effective Permissions panel to reflect the selected user
+        $('#effperm_panel').attr('username', selected_user);
+
+        // Hardcode the file path (for this studio exercise)
+        $('#effperm_panel').attr('filepath', '/C/presentation_documents/important_file.txt');
+    }
+);
+
+// Append the user selector to the same side panel
+$('#sidepanel').append(userSelect);
 // ---- Display file structure ----
 
 // (recursively) makes and returns an html element (wrapped in a jquery object) for a given file object
